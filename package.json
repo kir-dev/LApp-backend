@@ -1,0 +1,9 @@
+{
+   "name": "LApp",
+   "description": "Collaborative drawing app backend",
+   "author": "MAD - Tóth Bence",
+   "dependencies": {
+      "express": "4.x",
+      "socket.io": "^2.0.3"
+   }
+}
