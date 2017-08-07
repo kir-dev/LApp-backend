@@ -10,22 +10,26 @@ app.get('/', function(req, res){
 
 socket.on('connection', function(connection){
     console.log('a user connected');
-    connection.on('coords', function(msg){
-        socket.emit('coords', msg);
-        console.log("coord: " + msg);
+    connection.on('coords', function(coords){
+        socket.emit('coords', coords);
+        console.log("coord: " + coords);
     });
-    connection.on('start_coords', function(msg){
-        socket.emit('start_coords', msg);
-        console.log("start_coords: " + msg);
+    connection.on('start_coords', function(start_coords){
+        socket.emit('start_coords', start_coords);
+        console.log("start_coords: " + start_coords);
     });
     connection.on('color', function(color){
         socket.emit('color', color);
         console.log("color: " + color);
     });
+    connection.on('brush', function(brush){
+        socket.emit('brush', brush);
+        console.log("brush: " + brush);
+    });
 });
 
 
 
-http.listen(8080, function(){
-    console.log('listening on *:8080');
+http.listen(3000, function(){
+    console.log('listening on *:3000');
 });
