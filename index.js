@@ -11,7 +11,7 @@ app.get('/', function(req, res){
 socket.on('connection', function(connection){
     console.log('a user connected');
     connection.on('coords', function(coords){
-        socket.emit('coords', coords);
+        connection.broadcast.emit('coords', coords);
         console.log("coord: " + coords);
     });
     connection.on('start_coords', function(start_coords){
@@ -29,5 +29,5 @@ socket.on('connection', function(connection){
 });
 
 http.listen(3000, function(){
-    console.log('listening on *:3000');
+    console.log('listening on *:3000 port');
 });
