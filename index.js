@@ -8,11 +8,28 @@ app.get('/', function(req, res){
     res.send('<h1>Hello world</h1>');
 });
 
+Array.prototype.push_with_limit = function(element, limit){
+  var limit = limit || 50;
+  var length = this.length;
+  if( length == limit ){
+    this.shift();
+  }
+  this.push(element);
+}
+var arr = []
+
 socket.on('connection', function(connection){
     console.log('a user connected');
+
+    var str = "";
+    for(var i = 0; i < arr.length; i++) {
+        str += arr[i];
+    }
+    connection.emit('prevCoords', str);
+
     connection.on('coords', function(coords){
         connection.broadcast.emit('coords', coords);
-        console.log("coord: " + coords);
+        arr.push_with_limit(coords);
     });
     connection.on('start_coords', function(start_coords){
         socket.emit('start_coords', start_coords);
