@@ -9,7 +9,7 @@ app.get('/', function(req, res){
 });
 
 Array.prototype.push_with_limit = function(element, limit){
-  var limit = limit || 50;
+  var limit = limit || 200;
   var length = this.length;
   if( length == limit ){
     this.shift();
