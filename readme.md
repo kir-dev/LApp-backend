@@ -1,25 +1,14 @@
-Start simonyi dev VM
+# LApp backend
 
+## Install
 
-Run docker build
-docker build -t bence04/lapp .
+# How to run
 
-Run port forward
-docker run -p 8080:3000 -d bence04/lapp
+ - have nodejs installed
+ - have npm installed
 
-get docker containers id
-docker ps
+go to root folder of the project 
 
-get docker container log:
-docker logs CONTAINERID
-
-open docker container
-docker exec -it <mycontainer> bash
-
-get node process id
-ps aux | grep node
-
-kill proccess
-kill -9 PROCESS_ID
-
-
+$ `npm i` 
+ 
+$ `node index.js` 
